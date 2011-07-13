@@ -7,6 +7,6 @@
 	// reply error or ack message
 	socket_recv($socket, $reply, 1000, MSG_WAITALL);
 	
-	$reply = addslashes($reply);
+	//$reply = addslashes($reply);
 	echo($reply);
 ?>
