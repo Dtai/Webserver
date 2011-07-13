@@ -9,4 +9,6 @@ echo('Welkom op de website van de pokerbotserver!<br />');
 
 <a href="ObserveTableForm.php">De gegevens opvragen van een bepaalde tafel</a><br/>
 
+<a href="testVisualization.html">Test</a><br/>
+
 </body></html>
