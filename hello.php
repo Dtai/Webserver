@@ -1,7 +1,8 @@
 <?php
 
-    $classTable = htmlspecialchars($_POST['tableName']);
-    $playerName = htmlspecialchars($_POST['playerName']);
+    //using REQUEST for debug purposes
+    $classTable = htmlspecialchars($_REQUEST['tableName']);
+    $playerName = htmlspecialchars($_REQUEST['playerName']);
 
     $arrReq = array("type" => "fetchData", 
 	"tableName" => $classTable);
@@ -14,26 +15,29 @@
     socket_write($socket1, $message1);
     socket_shutdown($socket1,1); 
       
-    socket_recv($socket1, $reply1, 1000, MSG_WAITALL);
+    socket_recv($socket1, $reply1, 100000, MSG_WAITALL);
 
     $reply1JSON = json_decode($reply1, true);
 
     if($reply1JSON['result'] != NULL)
     {
+	//Table exists
 	$tableName = $playerName."_".$classTable."_test";
 	$nbPlayers = 3;
 
 	include("setUpTableRequest.php");
+	// This sets up the table. If the test table already exists, nothing will happen.
 	
 	$ackType = "Acknowledge";
 	$ackMessage = "Hello acknowledged!";
 	$ackArray = array("type" => $ackType,
-	    "message" => $ackMessage);
+	    "message" => $ackMessage,
+	    "testTable" => $tableName);
     }
     else 
     {
 	$ackArray = array("type" => "InvalidInput",
-	    "message" => "Table does not exist.");
+	    "message" => "Table '".$classTable."' does not exist.");
     }
 
     $ackJSON = json_encode($ackArray);
