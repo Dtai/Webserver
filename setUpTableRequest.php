@@ -1,15 +1,16 @@
 
 <?php
-	$arr = array('type' => "startTable", 
-	"tableName" => $tableName,
-	"nbPlayers" => $nbPlayers);
+	require("misc.php");
 
-	$arr2 = array('request' => $arr);
-	$message = json_encode($arr2);
-	//echo($message);
+	function setUpTableRequest($tableName, $nbPlayers)
+	{
+		$arr = array('type' => "startTable", 
+		"tableName" => $tableName,
+		"nbPlayers" => $nbPlayers);
 
-	$socket = socket_create(AF_INET, SOCK_STREAM, 0);
-	socket_connect($socket, "borgraf", 20000);
-	socket_write($socket, $message);
-	socket_shutdown($socket,1); 
+		$reply = sendRequest($arr);
+
+		return $reply;
+	}
+		
 ?>

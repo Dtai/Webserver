@@ -11,6 +11,8 @@ echo('Welkom op de website van de pokerbotserver!<br />');
 
 <a href="stopTableForm.php">Simulatie van een bepaalde tafel stopzetten</a><br/>
 
+<a href="resumeTableForm.php">Simulatie van een bepaalde tafel hervatten</a><br/>
+
 <a href="killTableForm.php">Een bepaalde tafel verwijderen uit het systeem</a><br/>
 
 <a href="listTables.php">Weergeven welke tafels in het systeem aanwezig zijn</a><br/>
