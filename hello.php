@@ -57,6 +57,17 @@
 		$ackArray = array("type" => $ackType,
 		    "message" => $ackMessage,
 		    "testTable" => $tableName);
+
+		//Join the table with a callbot.
+
+		$arrJoin = array('type' => "joinTable", 
+		"tableName" => $classTable,
+		"playerName" => $playerName,
+		"description" => "do(call, 1) :- true."
+		);
+	
+
+		$reply = sendRequest($arrJoin);
     	}
     }
 
