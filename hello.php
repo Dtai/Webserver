@@ -45,19 +45,6 @@
 	}
 	else
 	{
-		//Hello is valid. Set up test table and reply with ack.
-		$tableName = $playerName."_".$classTable."_test";
-		$nbPlayers = 3;
-
-		// This sets up the test table. If the test table already exists, nothing will happen.
-		setUpTableRequest($tableName, $nbPlayers);
-	
-		$ackType = "Acknowledge";
-		$ackMessage = "Hello acknowledged!";
-		$ackArray = array("type" => $ackType,
-		    "message" => $ackMessage,
-		    "testTable" => $tableName);
-
 		//Join the table with a callbot.
 
 		$arrJoin = array('type' => "joinTable", 
@@ -67,7 +54,29 @@
 		);
 	
 
-		$reply = sendRequest($arrJoin);
+		$replyJoin = sendRequest($arrJoin);
+		$replyJoinJSON = json_decode($replyJoin, true);
+
+		if($replyJoinJSON['type'] == "error")
+		{
+			$ackArray = array("type" => "InvalidInput",
+			"message" => "Table ".$classTable." is full. There is no room for more players");
+		}
+		else
+		{
+			//Hello is valid. Set up test table and reply with ack.
+			$tableName = $playerName."_".$classTable."_test";
+			$nbPlayers = 3;
+
+			// This sets up the test table. If the test table already exists, nothing will happen.
+			setUpTableRequest($tableName, $nbPlayers);
+	
+			$ackType = "Acknowledge";
+			$ackMessage = "Hello acknowledged!";
+			$ackArray = array("type" => $ackType,
+			    "message" => $ackMessage,
+			    "testTable" => $tableName);
+		}
     	}
     }
 
