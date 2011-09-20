@@ -4,5 +4,5 @@
 	
 	$reply = sendRequest($arr);
 
-	echo($reply);
+	echo(htmlspecialchars($reply));
 ?>

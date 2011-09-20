@@ -1,8 +1,31 @@
-<html><body>
+<html>
+	<head>
+		<title>Verwijder tafel</title>
+		<link href="style.css" type="text/css" rel="stylesheet"/>
+	</head>
 
-<form action ="killTable.php" method ="post">
-	<p> Naam van de tafel: <input type="text" name="tableName" /> </p>
-	<p><input type ="submit" /> </p>
-</form>
+	<body>
+		<div class="input">
+			<form action="killTable.php" method="post">
+			    <fieldset class="main">
+			        <legend>Verwijder tafel</legend>                        
 
-</body></html>
+			        <fieldset class="nested">
+				        <legend>Gegevens</legend>    
+				        <ol>
+							<li>
+								<label for="tableName">Naam tafel</label>
+								<input id="tableName" name="tableName" type="text"/>
+							</li>
+				        </ol>
+			        </fieldset>
+
+					<a id="button" href="index.php">Hoofdpagina</a>
+			        <div class="buttonsContainer">
+		                <input class="button" type="submit" value="Voer in" />
+			        </div>
+			    </fieldset>
+			</form>
+		</div>
+	</body>
+</html>
