@@ -91,6 +91,41 @@ a#button {
 	padding: 6px 24px;
 }
 
+.MetroButton {
+	height: 7em;
+	width: 7em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-right: 0.5em solid white;
+	
+	background-color: #ffec64;
+}
+
+.green {
+	background-color: #87DB88;
+}
+
+.red {
+	background-color: #DB878E;
+}
+
+.blue {
+	background-color: #879BDB;
+}
+
+.yellow {
+	background-color: #DBD887;
+}
+
+.pink {
+	background-color: #DB87B4;
+}
+
+.cyan {
+	background-color: #87DBCE;
+}
+
 a#button:hover{
 	color: #333;
 	background-color: #ffab23;

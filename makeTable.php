@@ -16,10 +16,11 @@
 				require("setUpTableRequest.php");
 				$tableName = $_POST['name'];
 				$nbPlayers = (int)$_POST['nbPlayers'];
+				$password = $_POST["password"];
 	
 
 				// reply error or ack message
-				$reply = setUpTableRequest($tableName, $nbPlayers);
+				$reply = setUpTableRequest($tableName, $nbPlayers, $password);
 	
 				$json = json_decode($reply, true);
 				if($json["type"] == "Acknowledge"){

@@ -15,7 +15,7 @@
 			<?php 
 				require("misc.php");
 				$tableName = $_POST['tableName'];
-				$arr = array("type" => "killTable", "tableName" => $tableName);
+				$arr = array("type" => "killTable", "tableName" => $tableName, "password" => $_POST["password"]);
 				$reply = sendRequest($arr);
 	
 				$json = json_decode($reply, true);

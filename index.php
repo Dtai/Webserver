@@ -7,14 +7,14 @@
 	<body>
 		<h1>Welkom op de website van de pokerbotserver!</h1>
 		
-		 <div class="input">
-			<a href="makeTableForm.php">Een nieuwe tafel aanmaken</a><br/>
-			<a href="joinTableForm.php">Op een bestaande tafel meespelen</a><br/>
-			<a href="ObserveTableForm.php">De gegevens opvragen van een bepaalde tafel</a><br/>
-			<a href="stopTableForm.php">Simulatie van een bepaalde tafel stopzetten</a><br/>
-			<a href="resumeTableForm.php">Simulatie van een bepaalde tafel hervatten</a><br/>
-			<a href="killTableForm.php">Een bepaalde tafel verwijderen uit het systeem</a><br/>
-			<a href="listTables.php">Weergeven welke tafels in het systeem aanwezig zijn</a><br/>
+		 <div class="input">			
+			<a class="Metrobutton red" href="makeTableForm.php">Nieuwe tafel</a>
+			<a class="Metrobutton" href="joinTableForm.php">Spelen op een tafel</a>
+			<a class="Metrobutton blue" href="ObserveTableForm.php">Grafiek tafel</a>
+			<a class="Metrobutton green" href="stopTableForm.php">Pauzeer tafel</a><br/>
+			<a class="Metrobutton pink" href="resumeTableForm.php">Hervat tafel</a>
+			<a class="Metrobutton yellow" href="killTableForm.php">Verwijder tafel</a>
+			<a class="Metrobutton cyan" href="listTables.php">Toon tafels</a> 
 		 </div>
 	</body>
 </html>

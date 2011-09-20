@@ -17,6 +17,10 @@
 								<label for="tableName">Naam tafel</label>
 								<input id="tableName" name="tableName" type="text"/>
 							</li>
+							<li>
+								<label for="password">Wachtwoord</label>
+								<input id="password" name="password" type="password"/>
+							</li>
 				        </ol>
 			        </fieldset>
 

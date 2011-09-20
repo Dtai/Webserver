@@ -2,11 +2,21 @@
 	<head>
 		<title> Maak tafel </title>
 		<link href="style.css" type="text/css" rel="stylesheet"/>
+		<script type="text/javascript">
+			function validateForm(){
+				var e = document.getElementById("password");
+				if(e.value.length == 0){
+					alert("Wachtwoord is te kort");
+					return false;
+				}
+				return true;
+			}
+		</script>
 	</head>
 
 	<body>
 		<div class="input">
-			<form action="makeTable.php" method="post">
+			<form action="makeTable.php" method="post" onsubmit="return validateForm()">
 			    <fieldset class="main">
 			        <legend>Maak tafel</legend>                        
 
@@ -23,7 +33,7 @@
 							</li>
 							<li>
 								<label for="password">Wachtwoord</label>
-								<input id="password" name="password" type="text"/>
+								<input id="password" name="password" type="password"/>
 							</li>
 				        </ol>
 			        </fieldset>
