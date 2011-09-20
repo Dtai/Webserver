@@ -11,10 +11,6 @@ h1 {
 	text-align: center;
 }
 
-fieldset.main legend {
-    font-weight: bold;
-}
-
 fieldset.nested {  
    	margin: 0 0 1em 0.4em;
     width: 93%;
@@ -87,7 +83,6 @@ a#button {
 	border: none;
 	color: #333;
 	font-size: 15px;
-	font-weight: bold;
 	padding: 6px 24px;
 }
 
@@ -137,7 +132,6 @@ a#button:hover{
 	border: none;
 	color: #333;
 	font-size: 15px;
-	font-weight: bold;
 	padding: 6px 24px;
 }
 .button:hover {

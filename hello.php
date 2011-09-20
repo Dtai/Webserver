@@ -69,7 +69,7 @@
 			$nbPlayers = 3;
 
 			// This sets up the test table. If the test table already exists, nothing will happen.
-			setUpTableRequest($tableName, $nbPlayers);
+			setUpTableRequest($tableName, $nbPlayers, "none");
 	
 			$ackType = "Acknowledge";
 			$ackMessage = "Hello acknowledged!";
