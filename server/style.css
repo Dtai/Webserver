@@ -1,0 +1,140 @@
+body {   
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+h1 {
+	text-align: center;
+}
+
+fieldset.nested {  
+   	margin: 0 0 1em 0.4em;
+    width: 93%;
+    border: 1px solid gray;
+    color: black;
+	background: #ffc;
+}
+
+fieldset.nested legend {
+    padding: 0 1em 0 1em;
+    color: white;
+    background-color: #333;
+}
+
+fieldset.nested ol {  
+    padding: 0;
+   	list-style: none;
+   	margin-bottom: 0em;
+}
+
+fieldset.nested li {
+	padding-bottom: .5em;
+}
+
+fieldset.nested ol li label {  
+	margin-left: 1em;
+    float: left;
+    width: 10em;
+}
+
+fieldset.nested ol li input {
+	border-radius: 6px;
+	border: 1px solid #333;  
+    width: 15em;
+}
+
+div.buttonsContainer {
+	margin-right: 0.4em;
+    float: right;
+}
+
+div.preview {
+	position: fixed;
+	width: 440px;
+	top: 14.3%;
+	right: 0;
+}
+
+#serie{
+	width: 15em;
+}
+
+#amountSerie{
+	width: 15em;
+}
+
+div.input {
+	margin: auto;
+	width: 478px;
+}
+
+.previewSerie {
+	cursor: default;
+}
+
+a#button {
+	float:left;
+	background-color: #ffec64;
+	border-radius: 6px;
+	border: none;
+	color: #333;
+	font-size: 15px;
+	padding: 6px 24px;
+}
+
+.MetroButton {
+	height: 7em;
+	width: 7em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-right: 0.5em solid white;
+	
+	background-color: #ffec64;
+}
+
+.green {
+	background-color: #87DB88;
+}
+
+.red {
+	background-color: #DB878E;
+}
+
+.blue {
+	background-color: #879BDB;
+}
+
+.yellow {
+	background-color: #DBD887;
+}
+
+.pink {
+	background-color: #DB87B4;
+}
+
+.cyan {
+	background-color: #87DBCE;
+}
+
+a#button:hover{
+	color: #333;
+	background-color: #ffab23;
+}
+
+.button {
+	background-color: #ffec64;
+	border-radius: 6px;
+	border: none;
+	color: #333;
+	font-size: 15px;
+	padding: 6px 24px;
+}
+.button:hover {
+	color: #333;
+	background-color: #ffab23;
+}
