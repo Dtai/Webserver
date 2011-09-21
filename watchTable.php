@@ -135,6 +135,11 @@
       if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	{
 	    var response = jQuery.parseJSON(xmlhttp.responseText);
+	    document.getElementById("parametersSmallBlind").innerHTML = "Small blind: " + response.bigBlind;
+	    document.getElementById("parametersBigBlind").innerHTML = "Big blind: " + response.bigBlind;
+	    document.getElementById("parametersMinimumRaise").innerHTML = "Minimum raise: " + response.minimumRaise;
+	    document.getElementById("parametersMaximumRaise").innerHTML = "Maximum raise " + response.maximumRaise;
+	    document.getElementById("parametersStartMoney").innerHTML = "Start money: " + response.startMoney;
 	    var gps = response.gamesPerSec;
 	    var timeData = new Array();
 
@@ -228,6 +233,13 @@
 <body>
 
 <div id="avg_profit" ></div>
+<div id="parameters" style="text-align:center">
+	<div id="parametersSmallBlind"></div>
+	<div id="parametersBigBlind"></div>
+	<div id="parametersMinimumRaise"></div>
+	<div id="parametersMaximumRaise"></div>
+	<div id="parametersStartMoney"></div>
+</div>
 <div id="actions"> </div>
 <div id="extra"> </div>
 
