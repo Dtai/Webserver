@@ -12,9 +12,10 @@
 			<a class="Metrobutton" href="joinTableForm.php">Spelen op een tafel</a>
 			<a class="Metrobutton blue" href="ObserveTableForm.php">Grafiek tafel</a>
 			<a class="Metrobutton green" href="stopTableForm.php">Pauzeer tafel</a><br/>
-			<a class="Metrobutton pink" href="resumeTableForm.php">Hervat tafel</a>
+			<a class="Metrobutton cyan" href="resumeTableForm.php">Hervat tafel</a>
 			<a class="Metrobutton yellow" href="killTableForm.php">Verwijder tafel</a>
-			<a class="Metrobutton cyan" href="listTables.php">Toon tafels</a> 
+			<a class="Metrobutton pink" href="listTables.php">Toon tafels</a> 
+			<a class="Metrobutton" href="kickPlayerForm.php">Kick speler</a>
 		 </div>
 	</body>
 </html>
