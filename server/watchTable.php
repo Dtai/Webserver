@@ -86,12 +86,16 @@
 					);
 					chartPies.push(tempPie);
 					
+					
+					
+					
+					
 					tempPieRule = new Highcharts.Chart(
 						{	
 							chart: {renderTo: "pieRules_"+player["name"], type: 'pie'},
 							title: {text: 'Rules of player \''+player["name"]+'\''},
 							series: [
-								{type: "pie", name: "Rules", data:[["Call", 1], ["Fold", 1], ["Raise", 1]]}
+								{type: "pie", name: "Rules", data: [10,10,10]}
 							]
 						}
 					);
@@ -141,12 +145,12 @@
 							]);
 							
 							var currPieRulesSeries = chartRules[i].series[0];
-							currPieRulesSeries.setData([ 
-								["Call", currPlayer["nbCalls"]],
-								["Fold", currPlayer["nbFolds"]],
-								["Raise", currPlayer["nbRaises"]]
-							]);
-
+							var data = [];
+							for(var j=0; j<currPlayer.rulesUsed.length; j++){
+								data.push([currPlayer.rulesUsed[j].name, currPlayer.rulesUsed[j].times]);
+							}
+							currPieRulesSeries.setData(data);
+							
 							if(currPlayer.name != currSeries.name){
 								currSeries.name = currPlayer.name;
 				
@@ -155,6 +159,7 @@
 								chartAvgP.legend.renderLegend();
 				
 								currPieSeries.name = currPlayer.name;
+								currPieRulesSeries.name = currPlayer.name;
 								chartPies[i].setTitle({ text: "Actions of player " + currPlayer.name});
 							}
 
@@ -188,12 +193,15 @@
 			
 			function toggle() {
 				var ele = document.getElementById("extra");
+				var eleR = document.getElementById("rules");
 				var text = document.getElementById("toggleButton");
 				if(ele.style.display == "none") {
 					ele.style.display = "block";
+					eleR.style.display = "block";
 					text.innerHTML = "hide";
 			  	} else {
 					ele.style.display = "none";
+					eleR.style.display = "none";
 					text.innerHTML = "show";
 				}
 				
