@@ -1,4 +1,7 @@
-<?php $tableName = $_REQUEST['name']; ?>
+<?php 
+	$tableName = $_REQUEST['name'];
+	$playerName = $_REQUEST['playerName'];
+?>
 <html>
 	<head>
 		<script src="/Jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
@@ -9,6 +12,7 @@
 			var chartActions;
 			var chartPies = new Array();
 			var tableName;
+			var playerName;
 			var refreshTime = 2000;
 			var currentTime = 0;
 			var windowSize = 30;
@@ -71,7 +75,7 @@
 					var player = response.result.player[i];
 					tempPie = new Highcharts.Chart(
 						{	
-							chart: {renderTo: 'pie_'+player["name"], type: 'pie', height: 250, width: 250, style:{margin: 'auto'}},
+							chart: {renderTo: "pie_"+player["name"], type: 'pie', height: 250, width: 250, style:{margin: 'auto'}},
 							title: {text: 'Actions of player \''+player["name"]+'\''},
 							series: [
 								{type: "pie", name: "Actions", data:[["Call", 1], ["Fold", 1], ["Raise", 1]]}
@@ -161,25 +165,59 @@
 				currentTime = currentTime + refreshTime;
 				setTimeout('observe()',refreshTime);
 			}
+			
+			function toggle() {
+				var ele = document.getElementById("extra");
+				var text = document.getElementById("toggleButton");
+				if(ele.style.display == "none") {
+					ele.style.display = "block";
+					text.innerHTML = "hide";
+			  	} else {
+					ele.style.display = "none";
+					text.innerHTML = "show";
+				}
+				
+				if (ele.hasChildNodes()) {
+					var children = ele.childNodes;
+					for (var i = 0; i < children.length; i++) {
+						if(children[i].id == "pie_"+playerName){
+							var c = children[i];
+							var pp = document.getElementById("playerPie");
+							pp.appendChild(c);
+						}
+					}
+				}
+			} 
 
 			window.onload = function () {
 				tableName = "<?php echo htmlspecialchars($tableName) ?>";
+				playerName = "<?php echo htmlspecialchars($playerName) ?>";
+				
 				setupGraph();
 				observe();
+				toggle();
 			}
 		</script>
+		
+		<style>
+			a#toggleButton {
+				cursor:pointer;
+			}
+		</style>
 	</head>
 
-	<body>
+	<body style="text-align:center">
 		<div id="avg_profit" ></div>
 		<div id="parameters" style="text-align:center">
 			<div id="parametersSmallBlind"></div>
 			<div id="parametersBigBlind"></div>
 			<div id="parametersMinimumRaise"></div>
 			<div id="parametersMaximumRaise"></div>
-			<div id="parametersStartMoney"></div>
-		</div>
+			<div id="parametersStartMoney"></div>	
+		</div>		
 		<div id="actions"> </div>
+		<a id="toggleButton" onclick="toggle()">hide</a>
+		<div id="playerPie"> </div>
 		<div id="extra"> </div>
 	</body>
 </html>
