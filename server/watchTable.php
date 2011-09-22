@@ -11,6 +11,7 @@
 			var chartAvgP; // globally available
 			var chartActions;
 			var chartPies = new Array();
+			var chartRules = new Array();
 			var tableName;
 			var playerName;
 			var refreshTime = 2000;
@@ -23,8 +24,6 @@
 			function setupGraph() {
 				var xmlhttp;
 				var series = new Array();
-				var seriesPie = new Array();
-				var seriesPiePlayers = new Array();
 				if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 					xmlhttp=new XMLHttpRequest();
 				} else {// code for IE6, IE5
@@ -36,14 +35,17 @@
 				var response = jQuery.parseJSON(xmlhttp.responseText);
 				var i;
 				var buf="";
+				var rules="";
 				lastSubmits = new Array(response.result.player.length);
 				for(i=0; i<response.result.player.length; i++){
 					var player = response.result.player[i];
 					buf += "<div id=pie_"+player["name"]+"> Empty: "+player["name"]+"</div> ";
+					rules += "<div id=pieRules_"+player["name"]+"> Empty: "+player["name"]+"</div> ";
 					series.push({data:[], name:player["name"]});
 					lastSubmits[i] = 0;
 				}
 				document.getElementById("extra").innerHTML = buf;
+				document.getElementById("rules").innerHTML = rules;
 	
 				chartAvgP = new Highcharts.Chart(
 					{
@@ -75,7 +77,7 @@
 					var player = response.result.player[i];
 					tempPie = new Highcharts.Chart(
 						{	
-							chart: {renderTo: "pie_"+player["name"], type: 'pie', height: 250, width: 250, style:{margin: 'auto'}},
+							chart: {renderTo: "pie_"+player["name"], type: 'pie'},
 							title: {text: 'Actions of player \''+player["name"]+'\''},
 							series: [
 								{type: "pie", name: "Actions", data:[["Call", 1], ["Fold", 1], ["Raise", 1]]}
@@ -83,6 +85,17 @@
 						}
 					);
 					chartPies.push(tempPie);
+					
+					tempPieRule = new Highcharts.Chart(
+						{	
+							chart: {renderTo: "pieRules_"+player["name"], type: 'pie'},
+							title: {text: 'Rules of player \''+player["name"]+'\''},
+							series: [
+								{type: "pie", name: "Rules", data:[["Call", 1], ["Fold", 1], ["Raise", 1]]}
+							]
+						}
+					);
+					chartRules.push(tempPieRule);
 				}
 			}
 
@@ -122,6 +135,13 @@
 						
 							var currPieSeries = chartPies[i].series[0];
 							currPieSeries.setData([ 
+								["Call", currPlayer["nbCalls"]],
+								["Fold", currPlayer["nbFolds"]],
+								["Raise", currPlayer["nbRaises"]]
+							]);
+							
+							var currPieRulesSeries = chartRules[i].series[0];
+							currPieRulesSeries.setData([ 
 								["Call", currPlayer["nbCalls"]],
 								["Fold", currPlayer["nbFolds"]],
 								["Raise", currPlayer["nbRaises"]]
@@ -219,5 +239,6 @@
 		<a id="toggleButton" onclick="toggle()">hide</a>
 		<div id="playerPie"> </div>
 		<div id="extra"> </div>
+		<div id="rules"> </div>
 	</body>
 </html>
