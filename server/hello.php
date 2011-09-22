@@ -45,12 +45,12 @@
 	}
 	else
 	{
-		//Join the table with a callbot.
+		//Join the table with a foldbot.
 
 		$arrJoin = array('type' => "joinTable", 
 		"tableName" => $classTable,
 		"playerName" => $playerName,
-		"description" => "do(call, 1) :- true."
+		"description" => "do(fold, 1) :- true."
 		);
 	
 
