@@ -198,11 +198,11 @@
 				if(ele.style.display == "none") {
 					ele.style.display = "block";
 					eleR.style.display = "block";
-					text.innerHTML = "hide";
+					text.innerHTML = "Verberg info spelers";
 			  	} else {
 					ele.style.display = "none";
 					eleR.style.display = "none";
-					text.innerHTML = "show";
+					text.innerHTML = "Toon info spelers";
 				}
 				
 				if (ele.hasChildNodes()) {
@@ -214,6 +214,18 @@
 							pp.appendChild(c);
 						}
 					}
+				}
+			}
+			
+			function toggleParams() {
+				var ele = document.getElementById("parameters");
+				var text = document.getElementById("toggleButtonParams");
+				if(ele.style.display == "none") {
+					ele.style.display = "block";
+					text.innerHTML = "Verberg spelparameters";
+			  	} else {
+					ele.style.display = "none";
+					text.innerHTML = "Toon spelparameters";
 				}
 			} 
 
@@ -228,23 +240,24 @@
 		</script>
 		
 		<style>
-			a#toggleButton {
+			.ToggleButton {
 				cursor:pointer;
 			}
 		</style>
 	</head>
 
 	<body style="text-align:center">
-		<div id="avg_profit" ></div>
-		<div id="parameters" style="text-align:center">
+		<div id="avg_profit" ></div>	
+		<div id="actions"> </div>
+		<a class="ToggleButton" id="toggleButton" onclick="toggle()" style="float: left">Toon info spelers</a>
+		<a class="ToggleButton" id="toggleButtonParams" onclick="toggleParams()" style="float: right">Toon spelparameters</a> </br>
+		<div id="parameters" style="text-align:center; display:none">
 			<div id="parametersSmallBlind"></div>
 			<div id="parametersBigBlind"></div>
 			<div id="parametersMinimumRaise"></div>
 			<div id="parametersMaximumRaise"></div>
 			<div id="parametersStartMoney"></div>	
-		</div>		
-		<div id="actions"> </div>
-		<a id="toggleButton" onclick="toggle()">hide</a>
+		</div>	
 		<div id="playerPie"> </div>
 		<div id="extra"> </div>
 		<div id="rules"> </div>

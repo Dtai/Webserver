@@ -16,8 +16,7 @@
 				require("setUpTableRequest.php");
 				$tableName = $_POST['name'];
 				$nbPlayers = (int)$_POST['nbPlayers'];
-				$password = $_POST["password"];
-	
+				$password = $_POST["password"];	
 
 				// reply error or ack message
 				$reply = setUpTableRequest($tableName, $nbPlayers, $password);
@@ -28,6 +27,12 @@
 						echo '<p>Message: ' . $json["message"] . '</p>';
 
 						echo '<div class="alert-actions">';
+						
+							echo '<form action="watchTable.php" method="post" style="float:right">';
+								echo '<input id="name" name="name" type="hidden" value="' . $tableName . '"/>';
+				            	echo '<input class="btn small" type="submit" value="Toon tafel" />';
+							echo '</form>';
+						
 							echo '<a class="btn small" href="index.php">Hoofdpagina</a>';
 						echo '</div>';
 				  	echo '</div>';
