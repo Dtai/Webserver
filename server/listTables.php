@@ -36,7 +36,7 @@
 				
 				foreach($tables as $table){
 					echo '<div class="alert-message block-message info">';
-						echo '<div id="tableName">';
+						echo '<div id="tableName">Tafel: ';
 							echo $table["name"];
 						echo '</div>';
 						echo '<p>';
