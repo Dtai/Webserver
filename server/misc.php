@@ -1,7 +1,15 @@
 <?php
 
+// Configuration options
 $PokerbotServer = "localhost";
 
+// watchTable.php uses JQuery and Highcharts javascript libraries
+$lib_DIR = "/pokerdemo";
+$lib_jquery = "$lib_DIR/Jquery/jquery-1.6.2.min.js";
+$lib_highcharts = "$lib_DIR/Highcharts/js/highcharts.js";
+
+
+// function to connect to the backend server
 function sendRequest($array)
 {
     global $PokerbotServer;

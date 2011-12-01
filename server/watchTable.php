@@ -7,8 +7,11 @@
 ?>
 <html>
 	<head>
-		<script src="/Jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
-		<script src="/Highcharts/js/highcharts.js" type="text/javascript"></script>
+        <?php
+		require("misc.php");
+		printf('<script src="%s" type="text/javascript"></script>', $lib_jquery);
+		printf('<script src="%s" type="text/javascript"></script>', $lib_highcharts);
+        ?>
 
 		<script type="text/javascript">
 			var chartAvgP; // globally available
