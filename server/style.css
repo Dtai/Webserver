@@ -4,7 +4,6 @@ body {
 
 a {
 	color: black;
-	text-decoration: none;
 }
 
 h1 {
@@ -77,6 +76,7 @@ div.input {
 }
 
 a#button {
+	text-decoration: none;
 	float:left;
 	background-color: #ffec64;
 	border-radius: 6px;
@@ -87,6 +87,7 @@ a#button {
 }
 
 .MetroButton {
+	text-decoration: none;
 	height: 7em;
 	width: 7em;
     display: table-cell;
