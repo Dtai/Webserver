@@ -33,8 +33,11 @@
 							</li>
 							<li>
 								<label for="password">Wachtwoord</label>
-								<input id="password" name="password" type="password"/>
+								<input id="password" name="password" type="text"/><br />
 							</li>
+                            <li>
+                                <i>Wachtwoord enkel nodig voor beheer zoals spelers verwijderen</i>
+                            </li>
 				        </ol>
 			        </fieldset>
 
