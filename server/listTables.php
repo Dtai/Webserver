@@ -33,7 +33,13 @@
 				$reply = sendRequest($arr);
 				$json = json_decode($reply, true);
 				$tables = $json["tables"];
-				
+
+                if (sizeof($tables) == 0) {
+					echo '<div class="alert-message block-message info">';
+                    echo 'Nog geen tafels aangemaakt';
+                    echo '</div>';
+                }
+
 				foreach($tables as $table){
                     $name = $table["name"];
 					echo '<div class="alert-message block-message info">';
