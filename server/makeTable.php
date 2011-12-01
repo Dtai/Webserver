@@ -29,7 +29,7 @@
 						echo '<div class="alert-actions">';
 						
 							echo '<form action="watchTable.php" method="post" style="float:right">';
-								echo '<input id="name" name="name" type="hidden" value="' . $tableName . '"/>';
+								echo '<input id="name" name="tableName" type="hidden" value="' . $tableName . '"/>';
 				            	echo '<input class="btn small" type="submit" value="Toon tafel" />';
 							echo '</form>';
 						
