@@ -1,5 +1,9 @@
 <?php 
 	$tableName = $_REQUEST['tableName'];
+    if ($tableName == '' && array_key_exists('name', $_REQUEST)) {
+        $tableName = $_REQUEST['name'];
+    }
+
     $playerName = '';
     if (array_key_exists('playerName', $_REQUEST)) {
     	$playerName = $_REQUEST['playerName'];
