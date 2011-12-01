@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Stop tafel</title>
+		<title>Pauzeer tafel</title>
 		<link href="style.css" type="text/css" rel="stylesheet"/>
 	</head>
 
@@ -8,14 +8,14 @@
 		<div class="input">
 			<form action="stopTable.php" method="post">
 			    <fieldset class="main">
-			        <legend>Stop tafel</legend>                        
+			        <legend>Pauzeer tafel</legend>
 
 			        <fieldset class="nested">
 				        <legend>Gegevens</legend>    
 				        <ol>
 							<li>
 								<label for="tableName">Naam tafel</label>
-								<input id="tableName" name="tableName" type="text"/>
+								<input id="tableName" name="tableName" type="text" <?php if ($_REQUEST['name']) { echo 'value="'.$_REQUEST['name'].'"'; } ?>/>
 							</li>
 							<li>
 								<label for="password">Wachtwoord</label>

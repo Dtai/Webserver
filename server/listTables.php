@@ -35,17 +35,26 @@
 				$tables = $json["tables"];
 				
 				foreach($tables as $table){
+                    $name = $table["name"];
 					echo '<div class="alert-message block-message info">';
 						echo '<div id="tableName">Tafel: ';
-							echo $table["name"];
+							echo $name;
 						echo '</div>';
 						echo '<p>';
-							echo '<div id="left"> Aantal spelers: ' . $table["nbPlayers"] . '</div>';
+							echo '<div id="left"> Aantal spelers: ';
+                            printf('<a href="watchTable.php?tableName=%s">%s', $name, $table["nbPlayers"]);
 							if($table["running"]){
-								echo '<div id="right"> Actief </div>';
+								echo ' (Actief)';
 							} else {
-								echo '<div id="right"> Inactief </div>';
+								echo ' (Inactief)';
 							}
+                            echo '</a></div>';
+                            printf('<div id="right">
+                                        <a href="stopTableForm.php?name=%s">Pauzeer</a>
+                                      - <a href="resumeTableForm.php?name=%s">Hervat</a>
+                                      - <a href="kickPlayerForm.php?name=%s">Kick speler</a>
+                                      - <a href="killTableForm.php?name=%s">Verwijder</a></div>
+                                   ', $name, $name, $name, $name);
 							echo '<div id="clear"></div>';
 						echo '</p>';
 				  	echo '</div>';

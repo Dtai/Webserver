@@ -15,7 +15,7 @@
 				        <ol>
 							<li>
 								<label for="tableName">Naam tafel</label>
-								<input id="tableName" name="tableName" type="text"/>
+								<input id="tableName" name="tableName" type="text" <?php if ($_REQUEST['name']) { echo 'value="'.$_REQUEST['name'].'"'; } ?>/>
 							</li>
 							<li>
 								<label for="playerName">Naam speler</label>
