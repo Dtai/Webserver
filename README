@@ -1,1 +1,17 @@
-Configure  in server/misc.php to point to your PokerbotServer installation
+Configure server/misc.php to your setup:
+
+'$PokerbotServer' should point to the host on which the pokerbot backend server is running
+
+
+'$lib_DIR' to some webserver directory (usually, / will be fine, note that this path is a relative path to the root of the webserver)
+
+For the watchTable.php animation to work, you need the JQuery and Highcharts javascript libraries.
+Download them en install them somewhere (e.g. in your $lib_DIR), then point
+'$lib_jquery' and '$lib_highcharts' to "jquery-1.6.2.min.js" and "highcharts.js" respectively.
+
+
+Debugging:
+To test your setup, you can create a table and use the debugging option of adding a player throught the website.
+
+Visit 'server/index.php?debug' (notice the ?debug append at the end)
+At the bottom, you now see the option 'Spelen op een tafel'. Click it and fill it in (the prolog syntax must be respected, so use the default code unless you know what you are doing)
