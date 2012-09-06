@@ -18,11 +18,26 @@ function sendRequest($array)
     $message = json_encode($arrReq);
 
     $socket = socket_create(AF_INET, SOCK_STREAM, 0);
-    socket_connect($socket, $PokerbotServer, 20000);
-    socket_write($socket, $message);
+    if ($socket === false) {
+        echo "socket_create() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
+    }
+ 
+    $ret = socket_connect($socket, $PokerbotServer, 20000);
+    if ($ret === false) {
+        echo "socket_connect() failed.\nReason: " . socket_strerror(socket_last_error($socket)) . "\n";
+    }
+
+    $ret = socket_write($socket, $message, strlen($message));
+    // shutdown socket for writing (is this to force a flush?)
     socket_shutdown($socket,1); 
       
-    socket_recv($socket, $reply, 100000, MSG_WAITALL);
+    $ret = socket_recv($socket, $reply, 100000, MSG_WAITALL);
+    socket_close($socket);
+    
+    if ($ret === false) {
+        echo "socket_recv() failed.\nReason: " . socket_strerror(socket_last_error($socket)) . "\n";
+        return null;
+    }
 
     return $reply;
 }
