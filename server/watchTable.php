@@ -1,8 +1,28 @@
 <?php 
+	require("misc.php");
+
 	$tableName = $_REQUEST['tableName'];
     if ($tableName == '' && array_key_exists('name', $_REQUEST)) {
         $tableName = $_REQUEST['name'];
     }
+
+
+    // check whether table exists
+	$arr = array("type"      => "fetchData", 
+	             "tableName" => $tableName);		
+	
+	$reply = sendRequest($arr);
+	if ($reply === false) {
+        show_error("Error (timeout?)", "Error connecting to server");
+        exit(1);
+    }
+
+    $json = json_decode($reply, true);
+    if ($json["type"] == 'error') {
+        show_error($json['name'], $json['message']);
+        exit(1);
+    }
+
 
     $playerName = '';
     if (array_key_exists('playerName', $_REQUEST)) {
@@ -12,7 +32,6 @@
 <html>
 	<head>
         <?php
-		require("misc.php");
 		printf('<script src="%s" type="text/javascript"></script>', $lib_jquery);
 		printf('<script src="%s" type="text/javascript"></script>', $lib_highcharts);
         ?>

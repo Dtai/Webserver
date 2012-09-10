@@ -52,4 +52,37 @@ function sendRequest($array, $timeout=5)
     return $reply;
 }
 
+
+// show an error (assumes nothing is written before/after this)
+function show_error($name, $message)
+{
+?>
+<html>
+	<head>
+		<title>Error</title>
+		<link rel="stylesheet" href="bootstrap.css">
+		<style>
+			div#message {
+				width: 50%;
+				margin: auto;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="message">
+		    <div class="alert-message block-message error">
+                <p><strong>Error: <?php echo $name ?> </p>
+				<p>Message: <?php echo $message ?> </p>
+
+				<div class="alert-actions">
+				    <a class="btn small" href="index.php">Hoofdpagina</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<?php
+}
+
 ?>
