@@ -143,6 +143,18 @@
 			
 				xmlhttp.onreadystatechange=function() {
 					if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                        // Check for ERROR
+                        var errbox = document.getElementById("errorbox");
+                        if (xmlhttp.responseText == "ERROR") {
+                            if(errbox.style.display == 'none') {
+                                errbox.innerHTML = "Error: connection with server lost, retrying...";
+                                errbox.style.display = 'block';
+                            }
+                        } else {
+                            if(errbox.style.display == 'block')
+                                errbox.style.display = 'none';
+
+                        // Handle respond
 						var response = jQuery.parseJSON(xmlhttp.responseText);
 						document.getElementById("parametersSmallBlind").innerHTML = "Small blind: " + response.smallBlind;
 						document.getElementById("parametersBigBlind").innerHTML = "Big blind: " + response.bigBlind;
@@ -208,7 +220,8 @@
 						chartActions.series[0].setData(timeData);
 						chartAvgP.redraw();
 
-					}
+					} // check for json ERROR (badly indented)
+                    }
 				};
 				xmlhttp.open("GET","ObserveTable.php?tableName="+tableName ,true);
 				xmlhttp.send();
@@ -276,6 +289,9 @@
 	</head>
 
 	<body style="text-align:center">
+        <div id="errorbox" style="display: block">
+            No data received yet.
+        </div>
 		<div id="avg_profit" ></div>	
 		<div id="actions"> </div>
 		<a class="ToggleButton" id="toggleButton" onclick="toggle()" style="float: left">Toon info spelers</a>

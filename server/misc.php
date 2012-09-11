@@ -12,7 +12,7 @@ $lib_highcharts = "$lib_DIR/Highcharts/js/highcharts.js";
 // function to connect to the backend server
 // returns the result
 // OR boolean 'false' on failure (e.g. timeout)
-function sendRequest($array, $timeout=5)
+function sendRequest($array, $timeout=5, $silent=false)
 {
     global $PokerbotServer;
 
@@ -29,7 +29,7 @@ function sendRequest($array, $timeout=5)
     socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array("sec"=>$timeout, "usec"=>0));
  
     $ret = socket_connect($socket, $PokerbotServer, 20000);
-    if ($ret === false) {
+    if ($ret === false && !$silent) {
         echo "socket_connect() failed.\nReason: " . socket_strerror(socket_last_error($socket)) . "\n";
     }
 
@@ -41,10 +41,12 @@ function sendRequest($array, $timeout=5)
     socket_close($socket);
     
     if ($ret === false) {
-	if (socket_last_error($socket) == '') {
-	    echo "socket: timeout reached\n";
-        } else {
-            echo "socket_recv() failed.\nReason: " . socket_strerror(socket_last_error($socket)) . "\n";
+        if (!$silent) {
+    	    if (socket_last_error($socket) == '') {
+	            echo "socket: timeout reached\n";
+            } else {
+                echo "socket_recv() failed.\nReason: " . socket_strerror(socket_last_error($socket)) . "\n";
+            }
         }
         return false;
     }

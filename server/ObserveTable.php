@@ -4,7 +4,10 @@
 	$arr = array("type" => "fetchData", 
 	"tableName" => $tableName);		
 	
-	$reply = sendRequest($arr);
+	$reply = sendRequest($arr, 2, true);
 
-	echo($reply);
+	if ($reply === false)
+        $reply = "ERROR";
+	
+    echo $reply;
 ?>
