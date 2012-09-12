@@ -32,6 +32,7 @@
 <html>
 	<head>
         <?php
+        printf("<title>Poker table '$tableName'</title>");
 		printf('<script src="%s" type="text/javascript"></script>', $lib_jquery);
 		printf('<script src="%s" type="text/javascript"></script>', $lib_highcharts);
         ?>
