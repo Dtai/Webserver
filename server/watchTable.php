@@ -73,7 +73,7 @@
 					buf += "<div id=pieRules_"+player["name"]+" style=\"float:right; width: 49%\"> Empty: "+player["name"]+"</div> ";
                     buf += "<div style=\"clear: both\"></div>"
                     buf += "</div>"
-					series.push({data:[], name:player["name"]});
+					series.push({shadow: false, data:[], name:player["name"]});
 					lastSubmits[i] = 0;
 				}
 				document.getElementById("extra").innerHTML = buf;
@@ -88,7 +88,8 @@
 						yAxis:{
 							title: {text: 'Gemiddelde winst'}
 						},
-						series: series
+						series: series,
+ 						tooltip: {enabled: false},
 					}
 				);
 
