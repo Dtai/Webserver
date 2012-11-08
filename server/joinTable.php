@@ -2,9 +2,9 @@
 	require("misc.php");
 
 	$arr = array('type' => "joinTable", 
-	"tableName" => $_POST['tableName'],
-	"playerName" => $_POST['playerName'],
-	"description" => $_POST['description']
+	"tableName" => $_REQUEST['tableName'],
+	"playerName" => $_REQUEST['playerName'],
+	"description" => $_REQUEST['description']
 	);
 	
 
