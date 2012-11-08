@@ -64,18 +64,23 @@
 		}
 		else
 		{
+			/**
+			 * We no longer create testtables
+			 * Should somebody wish to re-active this,
+			 * then make the test-table in the client!
 			//Hello is valid. Set up test table and reply with ack.
 			$tableName = $playerName."_".$classTable."_test";
 			$nbPlayers = 3;
 
 			// This sets up the test table. If the test table already exists, nothing will happen.
 			setUpTableRequest($tableName, $nbPlayers, "none");
+			*/
 	
 			$ackType = "Acknowledge";
 			$ackMessage = "Hello acknowledged!";
 			$ackArray = array("type" => $ackType,
-			    "message" => $ackMessage,
-			    "testTable" => $tableName);
+				"message" => $ackMessage);
+			//	"testTable" => $tableName);
 		}
     	}
     }
