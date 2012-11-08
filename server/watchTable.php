@@ -98,7 +98,10 @@
 						title: {text: 'Rekentijd per speler (percentage)'},
 						series: [
 							{type: "pie", name: "Times", data:[]}
-						]
+						],
+                        plotOptions: { pie: {
+                            shadow: false,
+                        }}
 					}
 				);
 
@@ -112,7 +115,10 @@
 							title: {text: 'Acties van \''+player["name"]+'\''},
 							series: [
 								{type: "pie", name: "Actions", data:[["Call", 1], ["Fold", 1], ["Raise", 1]]}
-							]
+							],
+                            plotOptions: { pie: {
+                                shadow: false,
+                            }}
 						}
 					);
 					chartPies.push(tempPie);
@@ -123,7 +129,10 @@
 							title: {text: 'Actieve regels van \''+player["name"]+'\''},
 							series: [
 								{type: "pie", name: "Rules", data: [10,10,10]}
-							]
+							],
+                            plotOptions: { pie: {
+                                shadow: false,
+                            }}
 						}
 					);
 					chartRules.push(tempPieRule);
