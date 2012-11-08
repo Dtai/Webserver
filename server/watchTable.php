@@ -69,8 +69,11 @@
 				lastSubmits = new Array(response.result.player.length);
 				for(i=0; i<response.result.player.length; i++){
 					var player = response.result.player[i];
-					buf += "<div id=pie_"+player["name"]+"> Empty: "+player["name"]+"</div> ";
-					rules += "<div id=pieRules_"+player["name"]+"> Empty: "+player["name"]+"</div> ";
+                    buf += "<div>"
+					buf += "<div id=pie_"+player["name"]+" style=\"float:left; width: 49%\"> Empty: "+player["name"]+"</div> ";
+					buf += "<div id=pieRules_"+player["name"]+" style=\"float:right; width: 49%\"> Empty: "+player["name"]+"</div> ";
+                    buf += "<div style=\"clear: both\"></div>"
+                    buf += "</div>"
 					series.push({data:[], name:player["name"]});
 					lastSubmits[i] = 0;
 				}
@@ -115,10 +118,6 @@
 						}
 					);
 					chartPies.push(tempPie);
-					
-					
-					
-					
 					
 					tempPieRule = new Highcharts.Chart(
 						{	
