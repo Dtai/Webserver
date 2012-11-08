@@ -239,7 +239,7 @@
 					text.innerHTML = "Verberg info spelers";
 			  	} else {
 					ele.style.display = "none";
-					text.innerHTML = "Toon info spelers";
+					text.innerHTML = "Toon alle spelers";
 				}
 				
 				if (ele.hasChildNodes()) {
@@ -287,8 +287,9 @@
             No data received yet.
         </div>
 		<div id="avg_profit" ></div>	
+		<div id="playerPie"> </div>
 		<div id="actions"> </div>
-		<a class="ToggleButton" id="toggleButton" onclick="toggle()" style="float: left">Toon info spelers</a>
+		<a class="ToggleButton" id="toggleButton" onclick="toggle()" style="float: left">Toon alle spelers</a>
 		<a class="ToggleButton" id="toggleButtonParams" onclick="toggleParams()" style="float: right">Toon spelparameters</a> </br>
 		<div id="parameters" style="text-align:center; display:none">
 			<div id="parametersSmallBlind"></div>
@@ -297,7 +298,6 @@
 			<div id="parametersMaximumRaise"></div>
 			<div id="parametersStartMoney"></div>	
 		</div>	
-		<div id="playerPie"> </div>
 		<div id="extra"> </div>
 	</body>
 </html>
