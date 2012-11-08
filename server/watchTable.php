@@ -65,11 +65,10 @@
 				var response = jQuery.parseJSON(xmlhttp.responseText);
 				var i;
 				var buf="";
-				var rules="";
 				lastSubmits = new Array(response.result.player.length);
 				for(i=0; i<response.result.player.length; i++){
 					var player = response.result.player[i];
-                    buf += "<div>"
+                    buf += "<div id=container_"+player["name"]+">"
 					buf += "<div id=pie_"+player["name"]+" style=\"float:left; width: 49%\"> Empty: "+player["name"]+"</div> ";
 					buf += "<div id=pieRules_"+player["name"]+" style=\"float:right; width: 49%\"> Empty: "+player["name"]+"</div> ";
                     buf += "<div style=\"clear: both\"></div>"
@@ -78,7 +77,6 @@
 					lastSubmits[i] = 0;
 				}
 				document.getElementById("extra").innerHTML = buf;
-				document.getElementById("rules").innerHTML = rules;
 	
 				chartAvgP = new Highcharts.Chart(
 					{
@@ -235,25 +233,21 @@
 			
 			function toggle() {
 				var ele = document.getElementById("extra");
-				var eleR = document.getElementById("rules");
 				var text = document.getElementById("toggleButton");
 				if(ele.style.display == "none") {
 					ele.style.display = "block";
-					eleR.style.display = "block";
 					text.innerHTML = "Verberg info spelers";
 			  	} else {
 					ele.style.display = "none";
-					eleR.style.display = "none";
 					text.innerHTML = "Toon info spelers";
 				}
 				
 				if (ele.hasChildNodes()) {
 					var children = ele.childNodes;
 					for (var i = 0; i < children.length; i++) {
-						if(children[i].id == "pie_"+playerName){
-							var c = children[i];
+						if(children[i].id == "container_"+playerName){
 							var pp = document.getElementById("playerPie");
-							pp.appendChild(c);
+							pp.appendChild(children[i]);
 						}
 					}
 				}
@@ -305,6 +299,5 @@
 		</div>	
 		<div id="playerPie"> </div>
 		<div id="extra"> </div>
-		<div id="rules"> </div>
 	</body>
 </html>
