@@ -81,12 +81,12 @@
 				chartAvgP = new Highcharts.Chart(
 					{
 						chart: {renderTo: 'avg_profit', type: 'line'},
-						title: {text: 'Average profit'},
+						title: {text: 'Gemiddelde winst'},
 						xAxis:{
-							title: {text: 'Time'}
+							title: {text: 'Tijd'}
 						},
 						yAxis:{
-							title: {text: 'Average profit'}
+							title: {text: 'Gemiddelde winst'}
 						},
 						series: series
 					}
@@ -95,21 +95,21 @@
 				chartActions = new Highcharts.Chart(
 					{
 						chart: {renderTo: 'actions', type: 'pie'},
-						title: {text: 'Time used'},
+						title: {text: 'Rekentijd per speler (percentage)'},
 						series: [
 							{type: "pie", name: "Times", data:[]}
 						]
 					}
 				);
 
-				gpsText = chartAvgP.renderer.text('Games per second: ', 0, 20).add();
+				gpsText = chartAvgP.renderer.text('Spelen per second: ', 0, 20).add();
 
 				for(i=0; i<response.result.player.length; i++){
 					var player = response.result.player[i];
 					tempPie = new Highcharts.Chart(
 						{	
 							chart: {renderTo: "pie_"+player["name"], type: 'pie'},
-							title: {text: 'Actions of player \''+player["name"]+'\''},
+							title: {text: 'Acties van \''+player["name"]+'\''},
 							series: [
 								{type: "pie", name: "Actions", data:[["Call", 1], ["Fold", 1], ["Raise", 1]]}
 							]
@@ -120,7 +120,7 @@
 					tempPieRule = new Highcharts.Chart(
 						{	
 							chart: {renderTo: "pieRules_"+player["name"], type: 'pie'},
-							title: {text: 'Rules of player \''+player["name"]+'\''},
+							title: {text: 'Actieve regels van \''+player["name"]+'\''},
 							series: [
 								{type: "pie", name: "Rules", data: [10,10,10]}
 							]
@@ -157,11 +157,11 @@
 						document.getElementById("parametersSmallBlind").innerHTML = "Small blind: " + response.smallBlind;
 						document.getElementById("parametersBigBlind").innerHTML = "Big blind: " + response.bigBlind;
 						document.getElementById("parametersMinimumRaise").innerHTML = "Minimum raise: " + response.minimumRaise;
-						document.getElementById("parametersStartMoney").innerHTML = "Start money: " + response.startMoney;
+						document.getElementById("parametersStartMoney").innerHTML = "Startgeld: " + response.startMoney;
 						var gps = response.gamesPerSec;
 						var timeData = new Array();
 
-						gpsText.attr({text:'Games per second: ' + gps.toFixed(2)});
+						gpsText.attr({text:'Spelen per seconde: ' + gps.toFixed(2)});
 						gpsText.add();
 			
 						var i;
@@ -199,7 +199,7 @@
 				
 								currPieSeries.name = currPlayer.name;
 								currPieRulesSeries.name = currPlayer.name;
-								chartPies[i].setTitle({ text: "Actions of player " + currPlayer.name});
+								chartPies[i].setTitle({ text: "Acties van " + currPlayer.name});
 							}
 
 
@@ -284,7 +284,7 @@
 
 	<body style="text-align:center">
         <div id="errorbox" style="display: block">
-            No data received yet.
+            Nog geen data ontvangen.
         </div>
 		<div id="avg_profit" ></div>	
 		<div id="playerPie"> </div>
