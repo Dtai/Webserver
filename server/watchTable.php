@@ -106,7 +106,7 @@
 					}
 				);
 
-				gpsText = chartAvgP.renderer.text('Spelen per second: ', 0, 20).add();
+				gpsText = chartActions.renderer.text('Spelen per seconde: ', 0, 40).add();
 
 				for(i=0; i<response.result.player.length; i++){
 					var player = response.result.player[i];
